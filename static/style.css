@@ -1,0 +1,21 @@
+body{
+    width:90%;
+    margin-left: 5%;
+  }
+a {text-decoration:none;color:#3d75b6}
+a:visited {color:#6d7b88}
+a:hover {color:#ce4a32}
+h1, h2{
+    text-align: center;
+}
+.movies{
+      margin-right: 10px;
+      display: inline-block;
+}
+.list_of_movies{
+    margin-top: 20px;
+}
+.search{
+
+    display: flex;
+}

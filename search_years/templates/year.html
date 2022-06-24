@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Поиск фильмов по годам</title>
+    <link rel="stylesheet" href="../../../../static/style.css">
+</head>
+<body>
+<main>
+
+    <h2>Введите диапазон годов выпуска для поиска</h2>
+    <form action= "/search/" method="post">
+        <input type = 'text' name="y1" placeholder="С (год выпуска)">
+        <input type = 'text' name="y2" placeholder="По (год выпуска)">
+        <button type="submit">Найти</button>
+    </form>
+    <h2> В диапазоне {{y1}} - {{y2}} нашлось {{movies_count}} фильмов: </h2>
+    {% for i in page_count_list %}
+           <a href="/search/{{y1}}/to/{{y2}}/{{i}}">{{i}}</a>
+    {% endfor %}
+    <div class="list_of_movies">
+    {% for film in films %}
+     <div class ='movies_column'>
+
+      <a href="/movie/{{film.title}}">{{film.title}},&nbsp{{film.release_year}}</a>
+
+     </div>
+    {% endfor %}
+    </div>
+</main>
+</body>
+</html>

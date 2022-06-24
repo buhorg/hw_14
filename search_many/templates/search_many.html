@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Поиск по жанру</title>
+    <link rel="stylesheet" href="../../static/style.css">
+</head>
+<body>
+<main>
+    <h2>Выберете жанр фильма (Dramas, Comedies, Thrillers, Anime, Action): </h2>
+    <form action="/multi_search/1/" method="post">
+        <p>Введите тип (Movie, TV Show) <input type="text" name="t" placeholder="{{gen}}"/>
+        <p>Введите год выпуска <input type="text" name="y" placeholder="{{gen}}"/>
+        <p>Введите жанр (Dramas, Comedies, Thrillers) <input type="text" name="g" placeholder="{{gen}}"/>
+        <p><button type="submit">Найти</button></p>
+    </form>
+
+</main>
+</body>
+</html>

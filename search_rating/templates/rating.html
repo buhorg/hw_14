@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Поиск по рейтингу</title>
+    <link rel="stylesheet" href="../../static/style.css">
+</head>
+<body>
+<main>
+    <h2>Выберете рейтинг фильма: </h2>
+    <form action="/rating/1/">
+
+        <p><label><input type="radio" name="rating"
+                {% if rating == 'family' %}
+                  checked
+                {% endif %}
+                         value="family"/>Семейный (G, PG, PG-13)</label></p>
+        <p><label><input type="radio" name="rating"
+                {% if rating == 'children' %}
+                  checked
+                {% endif %}
+                        value="children"/>Детский (G)</label></p>
+        <p><label><input type="radio" name="rating"
+                {% if rating == 'adult' %}
+                  checked
+                {% endif %}
+                         value="adult"/>Для взрослых (R, NC-17)</label></p>
+        <p><input type="submit" value="Выбрать"></p>
+    </form>
+    <h2> Нашлось {{movies_count}} фильмов с рейтингом {{rating}}! </h2>
+    {% if rating == "children" %}
+       {% for i in page_count_list %}
+          <a href="/rating/children/{{i}}">{{i}}</a>
+       {% endfor %}
+    {% elif rating == "family" %}
+       {% for i in page_count_list %}
+          <a href="/rating/family/{{i}}">{{i}}</a>
+       {% endfor %}
+    {% else %}
+       {% for i in page_count_list %}
+          <a href="/rating/adult/{{i}}">{{i}}</a>
+       {% endfor %}
+    {% endif %}
+    <div class="list_of_movies">
+       {% for film in films %}
+     <div class ='movies_column'>
+      <a href="/movie/{{film.title}}">{{film.rating}},&nbsp{{film.title}},&nbsp{{film.description}}</a>
+      </div>
+    {% endfor %}
+    </div>
+</main>
+</body>
+</html>

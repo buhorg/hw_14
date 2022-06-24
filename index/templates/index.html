@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Главная страница</title>
+    <link rel="stylesheet" href="../../static/style.css">
+</head>
+<body>
+<main>
+    <h2>В нашей базе {{movies_count}} фильмов!</h2>
+    {% for i in page_count_list %}
+           <a href="/{{i}}">{{i}}</a>
+    {% endfor %}
+    <div class="list_of_movies">
+    {% for film in films %}
+     <div class ='movies'>
+
+      <a href="/movie/{{film.title}}">{{film.title}}&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</a>
+
+     </div>
+    {% endfor %}
+    </div>
+    <h2> Воспользуйтесь ссылками ниже для сокращения результатов поиска</h2>
+   <div class ="search">
+    <a href="/search/">Поиск по годам выпуска</a>
+   </div>
+   <div class ="search">
+    <a href="/rating/">Поиск по рейтингу</a>
+    </div>
+    <div class ="search">
+    <a href="/genre/">Поиск по жанру (Результат в виде json)</a>
+    </div>
+     <div class ="search">
+    <a href="/multi_search/">Множественный поиск по типу, году, жанру (Результат в виде json)</a>
+    </div>
+    <div class ="search">
+    </div>
+    <p> Поиск актеров, кто сыграл с заданными в паре больше 2 раз </p>
+    <form action =/actors/>
+        <p><input type = 'text' name="a1"></p>
+        <p><input type = 'text' name="a2"></p>
+        <p><button type="submit">Найти</button></p>
+    </form>
+</main>
+</body>
+</html>
